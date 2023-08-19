@@ -1,0 +1,20 @@
+mat-spinner {
+    margin: auto;
+}
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    padding: 24px;
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+
+    &.hidden {
+        opacity: 0;
+    }
+}
+mat-card img {
+    background: -webkit-linear-gradient(top, lightgray, white);
+    box-shadow: gray -5px -5px 10px;
+}

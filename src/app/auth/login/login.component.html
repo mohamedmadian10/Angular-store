@@ -1,0 +1,23 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <!-- the start of login form -->
+    <form [formGroup]="loginForm" *ngIf="!isLoading" (ngSubmit)="onLogin()">
+        <mat-form-field>
+            <input matInput  [placeholder]=" 'AUTH.USERNAME' | translate" type="text" formControlName="username" required />
+            <mat-error *ngIf="loginForm.get('username')?.touched && loginForm.get('email')?.hasError('required')"> please enter a valid emaiuser name </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [placeholder]="'AUTH.PASSWORD' | translate" type="password" formControlName="password" required
+                minlength="4" />
+            <mat-error *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+                please enter a valid password
+            </mat-error>
+        </mat-form-field>
+        <button class="submit-btn" mat-raised-button color="primary" type="submit" *ngIf="!isLoading">{{'AUTH.LOGIN' | translate}}</button>
+        <mat-error *ngIf="errorMsg">
+           {{errorMsg}}
+
+        </mat-error>
+    </form>
+        <!-- the END of login form -->
+</mat-card>

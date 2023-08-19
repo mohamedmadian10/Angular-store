@@ -1,0 +1,32 @@
+<h2> {{ passedData.mode === 'edit' ? 'Update Product' : 'Add Product' }}</h2>
+<!-- the start of dynamic form -->
+<div *ngIf="passedData" class="mat-dialog-content" mat-dialog-content>
+    <form mat-form [formGroup]="producDynamictForm">
+        <mat-form-field>
+            <input matInput formControlName="title" placeholder="Title">
+            <mat-error *ngIf="producDynamictForm.get('title')?.hasError('required')">Title is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="price" type="number" placeholder="Price">
+            <mat-error *ngIf="producDynamictForm.get('price')?.hasError('required')">Price is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="category" placeholder="Category">
+            <mat-error *ngIf="producDynamictForm.get('category')?.hasError('required')">Category is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput formControlName="image" placeholder="image">
+            <mat-error *ngIf="producDynamictForm.get('image')?.hasError('required')">Image is required</mat-error>
+        </mat-form-field>
+    </form>
+    <div class="mat-dialog-actions" mat-dialog-actions>
+        <button mat-button [mat-dialog-close]="false">Cancel</button>
+        <button mat-button [disabled]="!producDynamictForm.valid" color="primary" [mat-dialog-close]=" passedData.mode === 'edit' ? {mode: 'Update', product:producDynamictForm.getRawValue() } :  {mode: 'Add', product:producDynamictForm.getRawValue() } ">
+            {{ passedData.mode === 'edit' ? 'Update' : 'Add' }}
+        </button>
+    </div>
+    <!-- the End of dynamic form -->
+</div>

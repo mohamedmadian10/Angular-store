@@ -1,0 +1,62 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<!-- the start of Add Product -->
+<div class="add-product">
+    <button color="primary" mat-raised-button
+        (click)="openDynamicDialog('add')"><mat-icon>add</mat-icon>{{"ADMIN.ADD_PRODUCT" | translate}}</button>
+</div>
+<!-- the End of Add Product -->
+
+<!-- the start of table -->
+<mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{"ADMIN.TABLE.TITLE" | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{ element.title }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{"ADMIN.TABLE.CATEGORY" | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{
+            element.category
+            }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{"ADMIN.TABLE.PRICE" | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{
+            element.price | currency
+            }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{"ADMIN.TABLE.IMAGE" | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <img [src]="element.image">
+        </mat-cell>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{"ADMIN.EDIT_PRODUCT" | translate}} </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Edit" class="iconbutton"
+                (click)="openDynamicDialog('edit', element)" color="primary">
+                <mat-icon>edit</mat-icon>
+            </button> </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> {{"ADMIN.DELETE_PRODUCT" | translate}} </mat-header-cell>
+        <mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Delete" class="iconbutton"
+                (click)="onDeleteProduct(element.id)" color="warn">
+                <mat-icon>delete</mat-icon>
+            </button> </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+</mat-table>
+<!-- the End of table -->
+
+<mat-paginator [pageSizeOptions]="[5, 10]" showFirstLastButtons></mat-paginator>

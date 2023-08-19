@@ -1,0 +1,10 @@
+.confirm-dialog-wrapper{
+   width: 300px;
+   height: 150px;
+   text-align: center;
+
+   .actions {
+    display: flex;
+    justify-content: space-around;
+   }
+}

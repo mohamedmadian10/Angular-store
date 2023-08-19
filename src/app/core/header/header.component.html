@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <span><a mat-button routerLink="/" routerLinkActive="mat-accent">{{ "CORE.HEADER.STORE" | translate }}
+    </a></span>
+  <span class="spacer"></span>
+  <button class="lng-btn" mat-icon-button (click)="toggleLanguage()">
+    {{translate.currentLang === 'en' ? 'Ar': 'EN'}}
+  </button>
+  <ul>
+    <li *ngIf="isAuthenticated && isAdmin">
+      <a mat-button routerLink="/admin" routerLinkActive="mat-accent">
+        {{'ADMIN.DASHBOARD' | translate}}</a>
+    </li>
+    <li *ngIf="!isAuthenticated">
+      <a mat-button routerLink="auth/login" routerLinkActive="mat-accent">
+        {{'AUTH.LOGIN' | translate}}</a>
+    </li>
+    <li *ngIf="isAuthenticated">
+      <button mat-button (click)="onLogout()">{{'AUTH.LOGOUT' | translate}}</button>
+    </li>
+  </ul>
+</mat-toolbar>

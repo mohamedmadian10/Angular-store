@@ -1,0 +1,23 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<ng-container *ngIf="!isLoading">
+    <mat-tab-group (selectedTabChange)="categoriesFiltered($event)" mat-align-tabs="center">
+        <ng-container *ngFor="let category of catagories">
+            <mat-tab label="{{ category | uppercase }}">
+                <ng-container *ngIf="allProducts">
+                    <div class="cards-container">
+                        <mat-card *ngFor="let product of selecteProducts">
+                            <mat-card-header>
+                                <mat-card-title>{{product.title}}</mat-card-title>
+                                <mat-card-subtitle>{{product.price}}</mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <img mat-card-sm-image [src]="product.image">
+                                <p>{{product.description}}</p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </ng-container>
+            </mat-tab>
+        </ng-container>
+    </mat-tab-group>
+</ng-container>

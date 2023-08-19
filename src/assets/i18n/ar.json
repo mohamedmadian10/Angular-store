@@ -1,0 +1,37 @@
+{
+    "AUTH": {
+        "WELCOME_MSG": "مرحبا في المتجر",
+        "LOGIN": "تسجيل الدخول",
+        "USERNAME": "اسم المستخدم",
+        "PASSWORD": "كلمة المرور",
+        "LOGOUT": "تسجيل الخروج"
+    },
+    "CORE": {
+        "HEADER": {
+            "STORE": "المتجر"
+        }
+    },
+    "SHOP": {
+        "CARD": {
+            "SHOW_MORE": "المزيد",
+            "SHOW_LESS": "اقل",
+            "ADD_TO_CART": "اضف الي العربة",
+            "SOON": "قريبا"
+        }
+    },
+    "ADMIN": {
+        "DASHBOARD": "صفحة الأدمن",
+        "ADD_PRODUCT": "اضف منتج",
+        "EDIT_PRODUCT": "تعديل",
+        "DELETE_PRODUCT": "حذف",
+        "DELETE_CONFIRMATION": "هل أنت متأكد من حذف هذا المنتج؟",
+        "CONFIRM":"تأكيد",
+        "CANCEL":"الغاء",
+        "TABLE": {
+            "TITLE": "الاسم",
+            "IMAGE": "الصوره",
+            "CATEGORY": "التصنيف",
+            "PRICE": "السعر"
+        }
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "AUTH": {
+        "WELCOME_MSG": "Welcome to the Store",
+        "LOGIN": "LogIn",
+        "USERNAME": "Username",
+        "PASSWORD": "Password",
+        "LOGOUT": "logout"
+    },
+    "CORE": {
+        "HEADER": {
+            "STORE": "STORE"
+        }
+    },
+    "SHOP": {
+        "CARD": {
+            "SHOW_MORE": "Show More",
+            "SHOW_LESS": "Show Less",
+            "ADD_TO_CART": "Add To Cart",
+            "SOON": "soon"
+        }
+    },
+    "ADMIN": {
+        "DASHBOARD": "dashboard",
+        "ADD_PRODUCT": "Add Product",
+        "EDIT_PRODUCT": "Update",
+        "DELETE_PRODUCT": "Delete",
+        "DELETE_CONFIRMATION": "Are You Sure You want to remove product?",
+        "CONFIRM": "confirm",
+        "CANCEL": "cancel",
+        "TABLE": {
+            "TITLE": "Title",
+            "IMAGE": "Image",
+            "CATEGORY": "Category",
+            "PRICE": "Price"
+        }
+    }
+}
