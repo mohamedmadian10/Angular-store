@@ -18,8 +18,8 @@ Dashboard page that displays a list of products for the admin to be able to appl
   # Usage
   - login only with the following credentials:
   - Admin to be able to redirected to the dashboard
-    username (admin)
-    password (admin)
+   - username (admin)
+   - password (admin)
   - User  => only able to redirected to the store
-    username (user)
-    password (user)
+   - username (user)
+   - password (user)
