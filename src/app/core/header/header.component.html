@@ -1,4 +1,9 @@
 <mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
   <span><a mat-button routerLink="/" routerLinkActive="mat-accent">{{ "CORE.HEADER.STORE" | translate }}
     </a></span>
   <span class="spacer"></span>

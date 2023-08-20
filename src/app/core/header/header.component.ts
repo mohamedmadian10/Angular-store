@@ -1,5 +1,5 @@
 import { Subscription } from "rxjs";
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from "@angular/core";
 import { AuthService } from "../../shared/services/auth.service";
 import { Role } from "../../shared/_models/role";
 
@@ -12,6 +12,8 @@ import { TranslateService } from "@ngx-translate/core";
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  @Output() toggleNav = new EventEmitter();
+
   /** isAuthenticated */
   isAuthenticated: boolean = false;
   /** authSub */
@@ -27,7 +29,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     private authService: AuthService,
     public translate: TranslateService
-  ) { 
+  ) {
     translate.setDefaultLang('en');
     translate.use('en');
   }
@@ -42,6 +44,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .subscribe((isAuth) => {
         this.isAuthenticated = isAuth;
       })
+  }
+
+  /**
+   * onToggle
+   * @description function to toggle nav bar
+   */
+  public onToggle(): void {
+    this.toggleNav.emit()
   }
 
   /**

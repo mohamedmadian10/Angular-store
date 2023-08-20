@@ -9,6 +9,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { ConfirmDialoge } from '../confirm-dialog/confirm-dialog.component';
 import { ProductDyamicDialogComponent } from '../product-dyamic-dialog/product-dyamic-dialog.component';
 import { DISPLYED_COLUMNS } from 'src/app/config/defines';
+import { UiService } from 'src/app/shared/services/ui.service';
 
 @Component({
   selector: 'app-products-list',
@@ -33,10 +34,12 @@ export class ProductsListComponent implements OnInit, AfterViewInit {
    * constructor
    * @param {ProductsService} productsService
    * @param {MatDialog} dialog 
+   * @param {UiService} uiService
    */
   constructor(
     private productsService: ProductsService,
     private dialog: MatDialog,
+    private uiService: UiService,
   ) { }
 
   /** ngOnInit */
@@ -93,6 +96,7 @@ export class ProductsListComponent implements OnInit, AfterViewInit {
     this.productsSub$.add(
       this.productsService.deleteProduct(id).subscribe(() => {
         this.isLoading = false;
+        this.uiService.showSnackBar('product removed successfully!', null, 3000, 'top')
         this.dataSource.data = this.dataSource.data.filter(product => {
           return product.id !== id
         })
@@ -128,6 +132,7 @@ export class ProductsListComponent implements OnInit, AfterViewInit {
     this.productsSub$.add(
       this.productsService.updateProduct(id, product).subscribe((updatedProduct) => {
         this.isLoading = false;
+        this.uiService.showSnackBar('product updated successfully!', null, 3000, 'top')
         this.dataSource.data = this.dataSource.data.filter((value) => {
           if (value.id == id) {
             value.title = updatedProduct.title;
@@ -150,6 +155,7 @@ export class ProductsListComponent implements OnInit, AfterViewInit {
     this.isLoading = true;
     this.productsSub$.add(
       this.productsService.addProduct(product).subscribe((product) => {
+        this.uiService.showSnackBar(' A new product created successfully!', null, 3000, 'top')
         this.isLoading = false;
         this.dataSource.data = [product, ...this.dataSource.data];
       })

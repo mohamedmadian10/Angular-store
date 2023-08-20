@@ -12,11 +12,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -38,6 +43,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MatDialogModule,
     HttpClientModule,
     MatTabsModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
+    FlexLayoutModule,
     TranslateModule
   ],
   exports: [
@@ -57,6 +66,10 @@ import { TranslateModule } from '@ngx-translate/core';
     MatDialogModule,
     HttpClientModule,
     MatTabsModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
+    FlexLayoutModule,
     TranslateModule
   ]
 })

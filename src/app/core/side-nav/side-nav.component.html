@@ -1,0 +1,20 @@
+<mat-nav-list>
+  <a *ngIf="!isAuthenticated" mat-list-item routerLink="" (click)="onCloseSidenav()">
+    <mat-icon>perm_identity</mat-icon>
+    <span class="nav_list_item">{{'AUTH.LOGIN' | translate}}</span>
+  </a>
+  <a *ngIf="isAuthenticated" mat-list-item routerLink="/" (click)="onCloseSidenav()">
+    <mat-icon>product</mat-icon>
+    <span class="nav_list_item">{{ "CORE.HEADER.STORE" | translate }}</span>
+  </a>
+  <a *ngIf="isAuthenticated && isAdmin" mat-list-item routerLink="/admin" (click)="onCloseSidenav()">
+    <mat-icon>dashboard</mat-icon>
+    <span class="nav_list_item">{{'ADMIN.DASHBOARD' | translate}}</span>
+  </a>
+  <mat-list-item *ngIf="isAuthenticated">
+    <button mat-icon-button (click)="onLogout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span class="nav_list_item">{{'AUTH.LOGOUT' | translate}}</span>
+    </button>
+  </mat-list-item>
+</mat-nav-list>

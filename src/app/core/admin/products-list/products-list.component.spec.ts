@@ -9,6 +9,7 @@ import { ProductsService } from 'src/app/shared/services/products.service';
 import { ProductsListComponent } from './products-list.component';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
+import { UiService } from 'src/app/shared/services/ui.service';
 
 describe('ProductsListComponent', () => {
   let component: ProductsListComponent;
@@ -17,6 +18,7 @@ describe('ProductsListComponent', () => {
   let matDialogMock: any;
   let mockProductData: Product[];
   let matDialogRefMock: MatDialogRef<any>;
+  let uiServiceMock: any;
 
   beforeEach(async () => {
     productsServiceMock = jasmine.createSpyObj('ProductsService', [
@@ -30,6 +32,9 @@ describe('ProductsListComponent', () => {
 
     matDialogMock = jasmine.createSpyObj('MatDialog', ['open']);
     matDialogMock.open.and.returnValue(matDialogRefMock);
+    uiServiceMock = jasmine.createSpyObj('uiService', [
+      'showSnackBar'
+    ])
 
     const mockPaginator = jasmine.createSpyObj('MatPaginatorIntl', [
       'getRangeLabel',
@@ -40,7 +45,7 @@ describe('ProductsListComponent', () => {
       declarations: [ProductsListComponent],
       imports: [
         TranslateModule.forRoot(), // add TranslateModule to imports
-        MatIconModule, // Add MatIconModule here
+        MatIconModule,
         MatPaginatorModule,
         MatTableModule
       ],
@@ -48,6 +53,8 @@ describe('ProductsListComponent', () => {
         { provide: ProductsService, useValue: productsServiceMock },
         { provide: MatDialog, useValue: matDialogMock },
         { provide: MatPaginator, useValue: mockPaginator }, // provide mock paginator intl
+        { provide: UiService, useValue: uiServiceMock },
+
       ],
     }).compileComponents();
   });

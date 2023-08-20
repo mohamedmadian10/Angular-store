@@ -1,6 +1,10 @@
-main {
-    width: 80%;
-    margin: auto;
-    margin: 1rem auto;
+mat-sidenav-content,
+mat-sidenav-container,
+mat-sidenav {
+    height: 100%;
 }
 
+mat-sidenav {
+    width: 300px;
+    z-index: 999;
+}

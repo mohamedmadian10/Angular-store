@@ -1,4 +1,97 @@
+.login_wrapper {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
 
+.login_wrapper::before {
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    background-image: url("../../../assets/bg-01.jpg");
+    background-size: cover;
+    opacity: 0.25;
+}
+
+.login_form {
+    background: #9152f8;
+    background: linear-gradient(to bottom, #7579ff, #b224ef);
+    color: #ffffff;
+    border-radius: 10px;
+    width: 450px;
+    /* height: 500px; */
+    margin: auto;
+    /* margin-top: 50px; */
+    padding: 55px 55px 37px 55px;
+
+    overflow: hidden;
+}
+
+mat-form-field {
+    width: 400px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    /* text-align: center */
+    margin-top: 20px;
+    position: relative;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+}
+
+::ng-deep .mat-form-field-label {
+    color: white !important;
+    margin-left: 15px !important;
+}
+
+::ng-deep .mat-form-field-underline {
+    background-color: #b224ef;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+    border-color: black;
+    background-color: #dddddd;
+}
+
+.material-icons-input {
+    color: #0e0d0d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+}
+
+
+.login_button {
+    color: #8e8e8e;
+    /* padding: 8px 24px;
+  border-radius: 16px; */
+    padding: 0 20px;
+    min-width: 100px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.forger_password {
+    text-decoration: none;
+    color: #ffffff;
+    padding-top: 40px;
+}
 mat-form-field {
     width: 100%;
 }
